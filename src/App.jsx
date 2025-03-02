@@ -364,61 +364,68 @@ const Home = () => {
           <p className="mb-4 text-green-700">
             Ayat tersisa hingga khatam: {recommendation.remainAyat}
           </p>
-          {recommendation.shalat.map((item, index) => (
-            <Card
-              key={index}
-              className="mb-4 border border-green-500 shadow-lg rounded-lg overflow-hidden"
-            >
-              <CardContent className="flex flex-row items-center bg-green-50 p-4 rounded-lg gap-x-4">
-                {/* Nomor urut */}
-                <div
-                  className="mb-3 w-12 h-12 flex items-center justify-center bg-green-500 text-white 
+          {recommendation.shalat.filter((item) => {
+            if(item.startSurat > 114) return false;
+            if(item.endSurat > 114) return false;
+            return true;
+          }).map((item, index) => {
+
+            return (
+              <Card
+                key={index}
+                className="mb-4 border border-green-500 shadow-lg rounded-lg overflow-hidden"
+              >
+                <CardContent className="flex flex-row items-center bg-green-50 p-4 rounded-lg gap-x-4">
+                  {/* Nomor urut */}
+                  <div
+                    className="mb-3 w-12 h-12 flex items-center justify-center bg-green-500 text-white 
               font-bold text-lg rounded-full text-center"
-                >
-                  {index + 1}
-                </div>
-                {/* Informasi shalat */}
-                <div className="flex-1">
-                  <p className="font-bold text-green-900 text-lg">
-                    {item.date}
-                  </p>
-                  <p className="font-medium text-green-800">
-                    {item.shalat} - {item.time}
-                  </p>
-                  <p className="text-green-700">
-                    Ayat yang harus diselesaikan saat shalat:{" "}
-                    <span className="font-semibold">
-                      {item.ayatShouldFinish}
-                    </span>
-                  </p>
-                  <p className="text-green-700">
-                    Mulai Bacaan:{" "}
-                    <span className="font-semibold">
-                      Surat {suratNames[item.startSurat - 1]} - Ayat{" "}
-                      {item.startAyat}
-                    </span>
-                  </p>
-                  <p className="text-green-700">
-                    Selesai Bacaan:{" "}
-                    <span className="font-semibold">
-                      Surat {suratNames[item.endSurat - 1]} - Ayat{" "}
-                      {item.endAyat}
-                    </span>
-                  </p>
-                </div>
-                {/* Checkbox */}
-                <div className="flex items-center justify-center mt-5">
-                  <input
-                    type="checkbox"
-                    checked={item.completed}
-                    onChange={() => handleCheckboxChange(index)}
-                    className="w-[50px] h-[50px] border-gray-300 rounded-lg text-green-600 focus:ring-green-500 
+                  >
+                    {index + 1}
+                  </div>
+                  {/* Informasi shalat */}
+                  <div className="flex-1">
+                    <p className="font-bold text-green-900 text-lg">
+                      {item.date}
+                    </p>
+                    <p className="font-medium text-green-800">
+                      {item.shalat} - {item.time}
+                    </p>
+                    <p className="text-green-700">
+                      Ayat yang harus diselesaikan saat shalat:{" "}
+                      <span className="font-semibold">
+                        {item.ayatShouldFinish}
+                      </span>
+                    </p>
+                    <p className="text-green-700">
+                      Mulai Bacaan:{" "}
+                      <span className="font-semibold">
+                        Surat {suratNames[item.startSurat - 1]} - Ayat{" "}
+                        {item.startAyat}
+                      </span>
+                    </p>
+                    <p className="text-green-700">
+                      Selesai Bacaan:{" "}
+                      <span className="font-semibold">
+                        Surat {suratNames[item.endSurat - 1]} - Ayat{" "}
+                        {item.endAyat}
+                      </span>
+                    </p>
+                  </div>
+                  {/* Checkbox */}
+                  <div className="flex items-center justify-center mt-5">
+                    <input
+                      type="checkbox"
+                      checked={item.completed}
+                      onChange={() => handleCheckboxChange(index)}
+                      className="w-[50px] h-[50px] border-gray-300 rounded-lg text-green-600 focus:ring-green-500 
                checked:bg-green-500 checked:border-green-500 checked:ring-green-500"
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
           <div className="mt-4 text-center">
             <StyledButton
               onClick={resetData}
@@ -532,9 +539,9 @@ const About = () => (
       untuk memberikan pengalaman yang nyaman dan bermanfaat bagi umat Muslim
       yang ingin mengkhatamkan Al-Quran yang dikembangan dengan sepenuh hati dan
       doa oleh Fauzi Fadhlurrohman. Aplikasi ini dibuat kurang dari 24 jam,
-      terinsipirasi dan diperuntukan kepada seseorang terkasih yang sangat istimewa yaitu
-      Mir'atunnisah. Alhamdulillah aplikasi ini bisa dirilis publik semoga dapat
-      membantu banyak orang. Terima kasih.
+      terinsipirasi dan diperuntukan kepada seseorang terkasih yang sangat
+      istimewa yaitu Mir'atunnisah. Alhamdulillah aplikasi ini bisa dirilis
+      publik semoga dapat membantu banyak orang. Terima kasih.
     </p>
     <a href="/" className="mt-10 text-grey">
       <button>Kembali</button>
