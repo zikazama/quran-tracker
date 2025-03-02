@@ -393,7 +393,7 @@ const Home = () => {
                     <p className="text-green-700">
                       Ayat yang harus diselesaikan saat shalat:{" "}
                       <span className="font-semibold">
-                        {item.endSurat ? 'Baca hingga khatam' : item.ayatShouldFinish}
+                        {item.endSurat > 114 ? 'Baca hingga khatam' : item.ayatShouldFinish}
                       </span>
                     </p>
                     <p className="text-green-700">
