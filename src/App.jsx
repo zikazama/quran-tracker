@@ -366,7 +366,6 @@ const Home = () => {
           </p>
           {recommendation.shalat.filter((item) => {
             if(item.startSurat > 114) return false;
-            if(item.endSurat > 114) return false;
             return true;
           }).map((item, index) => {
 
@@ -407,8 +406,8 @@ const Home = () => {
                     <p className="text-green-700">
                       Selesai Bacaan:{" "}
                       <span className="font-semibold">
-                        Surat {suratNames[item.endSurat - 1]} - Ayat{" "}
-                        {item.endAyat}
+                        Surat {item.endSurat > 114 ? suratNames[114] : suratNames[item.endSurat - 1]} - Ayat{" "}
+                        {item.endSurat > 114 ? 6 : item.endAyat}
                       </span>
                     </p>
                   </div>
