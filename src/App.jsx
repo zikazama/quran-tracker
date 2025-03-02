@@ -532,7 +532,7 @@ const About = () => (
       untuk memberikan pengalaman yang nyaman dan bermanfaat bagi umat Muslim
       yang ingin mengkhatamkan Al-Quran yang dikembangan dengan sepenuh hati dan
       doa oleh Fauzi Fadhlurrohman. Aplikasi ini dibuat kurang dari 24 jam,
-      terinsipirasi dan diperuntukan kepada seseorang terkasih yaitu
+      terinsipirasi dan diperuntukan kepada seseorang terkasih yang sangat istimewa yaitu
       Mir'atunnisah. Alhamdulillah aplikasi ini bisa dirilis publik semoga dapat
       membantu banyak orang. Terima kasih.
     </p>
