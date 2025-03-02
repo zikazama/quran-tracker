@@ -393,7 +393,7 @@ const Home = () => {
                     <p className="text-green-700">
                       Ayat yang harus diselesaikan saat shalat:{" "}
                       <span className="font-semibold">
-                        {item.ayatShouldFinish}
+                        {item.endSurat ? 'Baca hingga khatam' : item.ayatShouldFinish}
                       </span>
                     </p>
                     <p className="text-green-700">
@@ -406,7 +406,7 @@ const Home = () => {
                     <p className="text-green-700">
                       Selesai Bacaan:{" "}
                       <span className="font-semibold">
-                        Surat {item.endSurat > 114 ? suratNames[114] : suratNames[item.endSurat - 1]} - Ayat{" "}
+                        Surat {item.endSurat > 114 ? suratNames[114-1] : suratNames[item.endSurat - 1]} - Ayat{" "}
                         {item.endSurat > 114 ? 6 : item.endAyat}
                       </span>
                     </p>
